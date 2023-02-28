@@ -9,7 +9,7 @@ import { IoMdContact } from 'react-icons/io';
 
 export class App extends Component {
   state = {
-    contacts: data,
+    contacts: [],
     filter: '',
   };
 
@@ -22,12 +22,12 @@ export class App extends Component {
       });
       return;
     }
-    this.setState({});
+    this.setState({ contacts: data });
   }
 
   componentDidUpdate(prevProps, prevState) {
     const { contacts } = this.state;
-    if (prevState !== contacts) {
+    if (prevState.contacts !== contacts) {
       localStorage.setItem('contacts', JSON.stringify(contacts));
     }
   }
