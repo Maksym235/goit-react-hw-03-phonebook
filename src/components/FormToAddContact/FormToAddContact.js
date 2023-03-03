@@ -22,17 +22,10 @@ export class Form extends React.Component {
 
   onFormSubmmit = evt => {
     evt.preventDefault();
-    const form = evt.currentTarget;
-    const name = form.elements.name.value;
-    const number = form.elements.number.value;
-    this.setState({
-      name,
-      number,
-    });
     const newContact = {
       id: nanoid(),
-      name,
-      number,
+      name: this.state.name,
+      number: this.state.number,
     };
 
     this.props.onHandlerSubmit(newContact);
